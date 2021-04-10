@@ -20,6 +20,7 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 const mapStateToProps = (state) => {
+    console.log(cartItems);
     return {
         itemCount: selectCartItemsCount(state)
     }

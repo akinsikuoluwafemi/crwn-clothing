@@ -20,7 +20,7 @@ import { selectCartItems } from '../../redux/cart/cart.selectors';
 
  const mapStateToProps = (state) => {
      return {
-         cartItems: selectCartItems(state)
+         cartItems: selectCartItems()
      }
  }
 

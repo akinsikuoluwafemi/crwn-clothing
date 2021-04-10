@@ -18,9 +18,9 @@ import { selectCartItems } from '../../redux/cart/cart.selectors';
     )
  }
 
- const mapStateToProps = (state) => {
+ const mapStateToProps = ({cart: {cartItems}}) => {
      return {
-         cartItems: selectCartItems(state)
+         cartItems
      }
  }
 
