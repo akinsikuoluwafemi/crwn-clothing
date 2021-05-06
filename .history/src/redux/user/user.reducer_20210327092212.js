@@ -1,4 +1,0 @@
-
-const userReducer = (state, action) => {
-    
-}

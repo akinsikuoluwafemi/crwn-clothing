@@ -1,9 +1,13 @@
 import React from 'react';
+import CollectionPreview from '../../components/collection-preview/collection-preview.component';
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
+import { Route } from 'react-router-dom';
+import CollectionPage from '../collection/collection.component';
 
 
 
  function ShopPage () {
+    // console.log(match.path)
      
         return (
             
