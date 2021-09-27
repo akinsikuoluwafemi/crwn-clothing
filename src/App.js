@@ -14,7 +14,6 @@ import './App.css';
 import { selectCurrentUser } from './redux/user/user.selectors';
 
 
-
 class  App extends Component {
   
 
@@ -23,6 +22,8 @@ class  App extends Component {
 
   componentDidMount() {
     const { setCurrentUser } = this.props;
+
+      
     
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if(userAuth) {
@@ -50,8 +51,10 @@ class  App extends Component {
 
 
 
+
   componentWillUnmount(){
     this.unsubscribeFromAuth();
+    
   }
   
 
@@ -77,7 +80,7 @@ class  App extends Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-    currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 })
 
 

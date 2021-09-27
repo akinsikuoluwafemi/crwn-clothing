@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect } from 'react-redux';
 import CollectionItem from '../../components/collection-item/collection-item.component';
-
+import WithSpinner from '../../components/with-spinner/with-spinner.component';
 import { selectCollection } from '../../redux/shop/shop.selectors';
 
 
@@ -27,6 +27,8 @@ const CollectionPage = ({collection}) => {
         </div>
     )
 }
+
+
 
 const mapStateToProps = (state, ownProps) => {
     return {
