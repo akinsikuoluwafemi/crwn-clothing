@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
 import { firestore, convertCollectionSnapshotToMap } from '../../firebase/firebase.utils';
-import WithSpinner from '../../components/with-spinner/with-spinner.component';
 import { connect } from 'react-redux';
 import { updateCollections } from '../../redux/shop/shop.actions';
 
@@ -20,11 +19,12 @@ import { updateCollections } from '../../redux/shop/shop.actions';
 
      const collectionRef = firestore.collection('collections');
     
-    this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
+    collectionRef.get().then(snapshot =>{
       const collectionsMap = convertCollectionSnapshotToMap(snapshot);
       updateCollections(collectionsMap);
-      this.setState({loading: false})
-    });
+      this.setState({ loading: false });
+    })
+    
    }
 
    render (){
