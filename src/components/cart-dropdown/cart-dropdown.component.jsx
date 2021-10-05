@@ -2,17 +2,17 @@ import React from 'react';
 import CustomButton from '../custom-button/custom-button.component';
 import './cart-dropdown.styles.scss';
 import CartItem from '../cart-item/cart-item.component';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { selectCartItems } from '../../redux/cart/cart.selectors';
-import { withRouter } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
-import {selectCurrentUser } from '../../redux/user/user.selectors';
 
 
- function Cartdropdown({cartItems, history, dispatch,currentUser,  ...otherProps}) {
-     console.log(currentUser)
-     
+ function Cartdropdown() {
+    
+    const dispatch = useDispatch();
+    const history = useHistory();
+     const currentUser = useSelector(state => state.user.currentUser)
+     const cartItems = useSelector(state => state.cart.cartItems);
      
      return (
         <div className="cart-dropdown">
@@ -25,7 +25,6 @@ import {selectCurrentUser } from '../../redux/user/user.selectors';
             {currentUser ? (
                 <CustomButton onClick={() => {
                     history.push('/checkout')
-                    //  toggleCartHidden()
                     dispatch(toggleCartHidden())
                     
                 }}>GO TO CHECKOUT
@@ -39,18 +38,13 @@ import {selectCurrentUser } from '../../redux/user/user.selectors';
                 </CustomButton>
             )}
 
-            
-
 
         </div>
     )
  }
 
- const mapStateToProps = createStructuredSelector({
-        cartItems: selectCartItems,
-        currentUser: selectCurrentUser
- })
+ 
 
 
 
-export default withRouter(connect(mapStateToProps)(Cartdropdown));
+export default Cartdropdown;

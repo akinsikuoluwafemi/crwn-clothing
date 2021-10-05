@@ -29,6 +29,7 @@ const shopReducer = (state=INTITIAL_STATE, action) => {
                 isFetching: false,
                 errorMessage: action.payload
             }
+       
         default:
             return state;
     }
