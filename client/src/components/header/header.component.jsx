@@ -25,9 +25,9 @@ const Header = ({currentUser, hidden}) => {
                     <OptionLink  to="/shop">
                         SHOP
                     </OptionLink>
-                    <OptionLink  to="/contact">
+                    {/* <OptionLink  to="/contact">
                         CONTACT
-                    </OptionLink>
+                    </OptionLink> */}
 
                     {
                         currentUser ? <OptionLink as="div"  onClick={() => {
